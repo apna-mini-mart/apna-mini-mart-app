@@ -64,7 +64,8 @@
       font-size: 18px;
     }
 
-    button {
+    button,
+    #openBtn {
       width: 100%;
       border: 0;
       border-radius: 14px;
@@ -84,6 +85,8 @@
     #openBtn {
       background: #006b32;
       color: white;
+      text-decoration: none;
+      display: block;
     }
 
     .note {
@@ -112,9 +115,10 @@
     📲 Install Apna Mini Mart
   </button>
 
-  <button id="openBtn">
+  <a id="openBtn"
+     href="https://script.google.com/a/*/macros/s/AKfycbzpDjTQ6qo67cSA9o0sJeeAefZwv3ErbOQLKYvcql7JyA08rqVPAA0QkvC_M7BTP2Y8/exec">
     🛒 Open Apna Mini Mart
-  </button>
+  </a>
 
   <div class="note">
     Install करने के बाद Home Screen से सीधे खोलें
@@ -162,14 +166,6 @@
     deferredPrompt = null;
 
     document.getElementById("installBtn").style.display = "none";
-  });
-
-  // Open actual Apna Mini Mart
-  document.getElementById("openBtn").addEventListener("click", function () {
-
-    window.location.href =
-      "https://script.google.com/a/*/macros/s/AKfycbzpDjTQ6qo67cSA9o0sJeeAefZwv3ErbOQLKYvcql7JyA08rqVPAA0QkvC_M7BTP2Y8/exec";
-
   });
 </script>
 
