@@ -20,10 +20,21 @@
 <body>
 
 <script>
-  // Apna Mini Mart Google Apps Script
   const APP_URL =
     "https://script.google.com/macros/s/AKfycbzpDjTQ6qo67cSA9o0sJeeAefZwv3ErbOQLKYvcql7JyA08rqVPAA0QkvC_M7BTP2Y8/exec";
 
+  // Service Worker register
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(function () {
+        console.log("Service Worker registered");
+      })
+      .catch(function (error) {
+        console.log("Service Worker registration failed:", error);
+      });
+  }
+
+  // Open Apna Mini Mart
   window.location.replace(APP_URL);
 </script>
 
