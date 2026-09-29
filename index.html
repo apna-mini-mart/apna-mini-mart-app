@@ -10,32 +10,104 @@
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
   <link rel="manifest" href="./manifest.json">
 
   <title>Apna Mini Mart</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .logo {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 20px;
+      border-radius: 22px;
+      background: #006b32;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: #006b32;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 28px;
+    }
+
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 18px;
+      font-weight: bold;
+      background: #006b32;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
 
-<script>
-  const APP_URL =
-    "https://script.google.com/macros/s/AKfycbzpDjTQ6qo67cSA9o0sJeeAefZwv3ErbOQLKYvcql7JyA08rqVPAA0QkvC_M7BTP2Y8/exec";
+<div class="app">
 
-  // Service Worker register
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("./service-worker.js")
-      .then(function () {
-        console.log("Service Worker registered");
-      })
-      .catch(function (error) {
-        console.log("Service Worker registration failed:", error);
-      });
+  <div class="logo">🛍️</div>
+
+  <h1>Apna Mini Mart</h1>
+
+  <p>Daily Needs, Always Near You</p>
+
+  <button onclick="openApp()">
+    Open Apna Mini Mart
+  </button>
+
+</div>
+
+<script>
+  function openApp() {
+    window.location.href =
+      "https://script.google.com/macros/s/AKfycbzpDjTQ6qo67cSA9o0sJeeAefZwv3ErbOQLKYvcql7JyA08rqVPAA0QkvC_M7BTP2Y8/exec";
   }
 
-  // Open Apna Mini Mart
-  window.location.replace(APP_URL);
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("./service-worker.js")
+        .then(function () {
+          console.log("Service Worker registered");
+        })
+        .catch(function (error) {
+          console.log("Service Worker error:", error);
+        });
+    });
+  }
 </script>
 
 </body>
