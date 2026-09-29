@@ -1,9 +1,11 @@
-const CACHE_NAME = 'apna-mini-mart-v1';
+const CACHE_NAME = 'apna-mini-mart-v2';
 
 const APP_FILES = [
   './',
   './index.html',
-  './manifest.json'
+  './manifest.json',
+  './amm-icon-192.png',
+  './amm-icon-512.png'
 ];
 
 self.addEventListener('install', function(event) {
@@ -38,7 +40,6 @@ self.addEventListener('activate', function(event) {
 
 self.addEventListener('fetch', function(event) {
 
-  // Google Apps Script requests को cache नहीं करेंगे
   if (event.request.url.indexOf('script.google.com') !== -1) {
     return;
   }
